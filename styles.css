@@ -1,0 +1,136 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+}
+
+main {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 1280px;
+    width: 100%;
+}
+
+.upload-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #e9f7ff;
+    max-width: 400px;
+    margin: auto;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.upload-container:hover {
+    background-color: #d6eaff;
+}
+
+.upload-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.upload-icon {
+    font-size: 3rem;
+    color: #007bff;
+}
+
+.upload-text {
+    margin: 10px 0;
+    font-size: 1rem;
+    color: #666;
+}
+
+.upload-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.upload-button:hover {
+    background-color: #0056b3;
+}
+
+.file-input {
+    display: none;
+}
+
+#imageContainer {
+    margin-bottom: 1rem;
+
+}
+
+#selectedImage {
+    max-width: 20%;
+    height: auto;
+    display: none;
+    border-radius: 16px;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#exifDataContainer {
+    display: none;
+}
+
+#exifData {
+    background-color: #f4f4f4;
+    padding: 1rem;
+    border-radius: 8px;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+#mapButton {
+    display: none;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: white;
+    border: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+#mapButton:hover {
+    background-color: #0056b3;
+}
