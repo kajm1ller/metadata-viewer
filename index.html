@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXIF Metadata Viewer</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/exif-js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/heic2any"></script>
+</head>
+<body>
+
+    <main>
+        <div id="uploadContainer" class="upload-container">
+            <input type="file" id="fileInput" accept="image/*, .heic, .heif" class="file-input">
+            <div class="upload-content">
+                <div class="upload-icon">
+                    <i class="fa fa-cloud-upload" aria-hidden="true"></i>
+                </div>
+                <div class="upload-text">Drag files to upload, or</div>
+                <button class="upload-button">Choose File</button>
+            </div>
+        </div>
+        <div id="imageContainer">
+            <img id="selectedImage" src="" alt="Selected Image">
+        </div>
+        <button id="mapButton">Open Location in Google Maps</button>
+        <div id="exifDataContainer">
+            <h2>EXIF Metadata</h2>
+            <div id="exifData"></div>
+        </div>
+    </main>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
