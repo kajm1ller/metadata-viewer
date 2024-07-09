@@ -45,27 +45,33 @@ function extractExifData(file) {
 
     EXIF.getData(file, function () {
         const allMetaData = EXIF.getAllTags(this);
-        const formattedData = formatExifData(allMetaData);
-        exifDataElement.innerHTML = formattedData;
-        exifDataContainer.style.display = 'block';
-
-        // Check for GPS data
-        const lat = EXIF.getTag(this, "GPSLatitude");
-        const lon = EXIF.getTag(this, "GPSLongitude");
-
-        if (lat && lon) {
-            const latRef = EXIF.getTag(this, "GPSLatitudeRef") || "N";
-            const lonRef = EXIF.getTag(this, "GPSLongitudeRef") || "W";
-            const latitude = convertDMSToDD(lat, latRef);
-            const longitude = convertDMSToDD(lon, lonRef);
-
-            mapButton.style.display = 'block';
-            mapButton.onclick = function () {
-                const mapUrl = `https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`;
-                window.open(mapUrl, '_blank');
-            };
-        } else {
+        if (Object.keys(allMetaData).length === 0) {
+            exifDataElement.innerHTML = '<p>We couldn\'t find any EXIF metadata for this image. Please try another image.</p>';
+            exifDataContainer.style.display = 'block';
             mapButton.style.display = 'none';
+        } else {
+            const formattedData = formatExifData(allMetaData);
+            exifDataElement.innerHTML = formattedData;
+            exifDataContainer.style.display = 'block';
+
+            // Check for GPS data and display the map button if present
+            const lat = EXIF.getTag(this, "GPSLatitude");
+            const lon = EXIF.getTag(this, "GPSLongitude");
+
+            if (lat && lon) {
+                const latRef = EXIF.getTag(this, "GPSLatitudeRef") || "N";
+                const lonRef = EXIF.getTag(this, "GPSLongitudeRef") || "W";
+                const latitude = convertDMSToDD(lat, latRef);
+                const longitude = convertDMSToDD(lon, lonRef);
+
+                mapButton.style.display = 'block';
+                mapButton.onclick = function () {
+                    const mapUrl = `https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`;
+                    window.open(mapUrl, '_blank');
+                };
+            } else {
+                mapButton.style.display = 'none';
+            }
         }
     });
 }
