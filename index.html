@@ -2,35 +2,64 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EXIF Metadata Viewer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Bootstrap 4 Boilerplate</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/exif-js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/heic2any"></script>
 </head>
 <body>
+    <!-- Fixed Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="#">EXIF Metadata Viewer</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          
+        </div>
+    </nav>
 
-    <main>
-        <div id="uploadContainer" class="upload-container">
+    <header class="bg-primary text-white text-center py-5 container-fluid">
+        <div class="container">
+            <h1 class="display-4">Unveil the Hidden Details of Your Photos</h1>
+            <p class="lead">Upload your images to explore and analyze the EXIF metadata, and discover the story behind every photo. Easily view geo-location data on Google Maps.</p>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <div id="uploadContainer" class="upload-container p-5 bg-light border rounded text-center">
             <input type="file" id="fileInput" accept="image/*, .heic, .heif" class="file-input">
             <div class="upload-content">
-                <div class="upload-icon">
-                    <i class="fa fa-cloud-upload" aria-hidden="true"></i>
+                <div class="upload-icon mb-3">
+                    <i class="fa fa-cloud-upload-alt fa-3x text-primary" aria-hidden="true"></i>
                 </div>
-                <div class="upload-text">Drag files to upload, or</div>
-                <button class="upload-button">Choose File</button>
+                <div class="upload-text mb-3">Drag files to upload, or</div>
+                <button class="btn btn-primary upload-button">Choose File</button>
             </div>
         </div>
-        <div id="imageContainer">
-            <img id="selectedImage" src="" alt="Selected Image">
+
+        <div id="imageContainer" class="text-center mt-4">
+            <img id="selectedImage" src="" alt="Selected Image" class="img-fluid rounded">
         </div>
-        <button id="mapButton">Open Location in Google Maps</button>
-        <div id="exifDataContainer">
+
+        <div class="text-center mt-4">
+            <button id="mapButton" class="btn btn-primary">Open Location in Google Maps</button>
+        </div>
+
+        <div id="exifDataContainer" class="mt-5">
             <h2>EXIF Metadata</h2>
-            <div id="exifData"></div>
+            <div id="exifData" class="bg-light p-3 rounded border"></div>
         </div>
     </main>
+
+    <!-- jQuery, Popper.js, and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/exif-js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/heic2any"></script>
     <script src="scripts.js"></script>
 </body>
 </html>
